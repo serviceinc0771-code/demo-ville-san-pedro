@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#1A4A5C"/>
+      <stop offset="55%" stop-color="#0B2E3B"/>
+      <stop offset="100%" stop-color="#0A2430"/>
+    </linearGradient>
+    <linearGradient id="sea" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#1F6F6A"/>
+      <stop offset="50%" stop-color="#165A56"/>
+      <stop offset="100%" stop-color="#0B2E3B"/>
+    </linearGradient>
+    <linearGradient id="sand" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#E0D0B8"/>
+      <stop offset="100%" stop-color="#C9B08A"/>
+    </linearGradient>
+    <radialGradient id="sun" cx="75%" cy="22%" r="18%">
+      <stop offset="0%" stop-color="#F3E8D8" stop-opacity=".95"/>
+      <stop offset="60%" stop-color="#E07A3D" stop-opacity=".35"/>
+      <stop offset="100%" stop-color="#0B2E3B" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="1600" height="900" fill="url(#sky)"/>
+  <circle cx="1200" cy="200" r="220" fill="url(#sun)"/>
+  <!-- distant hills -->
+  <path d="M0 520 C200 470 340 490 480 510 C640 535 780 470 920 485 C1080 505 1220 450 1400 480 C1500 495 1560 510 1600 520 L1600 900 L0 900 Z" fill="#0E3A3A" opacity=".55"/>
+  <!-- sea -->
+  <path d="M0 560 C280 530 420 580 640 555 C860 530 1040 575 1260 550 C1420 532 1520 560 1600 545 L1600 900 L0 900 Z" fill="url(#sea)"/>
+  <!-- foam lines -->
+  <path d="M0 620 C180 605 320 635 500 618 C700 598 880 640 1080 615 C1260 595 1440 625 1600 610" fill="none" stroke="#FFFAF3" stroke-opacity=".22" stroke-width="3"/>
+  <path d="M0 655 C220 640 380 670 560 652 C780 630 960 675 1180 650 C1360 630 1500 660 1600 648" fill="none" stroke="#FFFAF3" stroke-opacity=".14" stroke-width="2"/>
+  <!-- beach -->
+  <path d="M0 760 C300 720 520 780 800 745 C1080 710 1300 770 1600 735 L1600 900 L0 900 Z" fill="url(#sand)"/>
+  <!-- port silhouette -->
+  <g fill="#071820" opacity=".7">
+    <rect x="180" y="500" width="28" height="90"/>
+    <rect x="220" y="470" width="18" height="120"/>
+    <rect x="250" y="520" width="60" height="70"/>
+    <rect x="320" y="490" width="22" height="100"/>
+    <path d="M160 590 h220 l-20 20 h-180 z"/>
+  </g>
+  <!-- canoe hint -->
+  <ellipse cx="980" cy="640" rx="70" ry="10" fill="#7A4E2D" opacity=".55"/>
+  <path d="M920 638 Q980 620 1040 638" fill="none" stroke="#1A120B" stroke-opacity=".35" stroke-width="3"/>
+  <!-- palms silhouettes -->
+  <g fill="#0A1F28" opacity=".65">
+    <path d="M1380 720 C1385 650 1390 600 1395 560 C1370 575 1350 600 1340 630 C1360 610 1380 590 1395 560 C1410 590 1430 610 1450 630 C1440 600 1420 575 1395 560 C1400 600 1405 650 1410 720 Z"/>
+    <path d="M1480 740 C1484 680 1488 640 1492 605 C1470 618 1455 640 1448 665 C1465 648 1480 630 1492 605 C1505 630 1520 648 1538 665 C1530 640 1515 618 1492 605 C1496 640 1500 680 1504 740 Z"/>
+  </g>
+</svg>
