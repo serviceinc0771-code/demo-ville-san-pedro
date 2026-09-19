@@ -1,1 +1,139 @@
-PLACEHOLDER
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import SectionHeading from '../components/SectionHeading.astro';
+import DemoBadge from '../components/DemoBadge.astro';
+
+const lieux = [
+  {
+    tag: 'Plage',
+    title: 'Monogaga & alentours',
+    text: 'Longue ligne de sable, cocotiers et lumière basse en fin de journée. Ideal pour marcher, nager selon la mer, et sentir l’Atlantique loin du quai.',
+    note: 'Conditions de baignade variables — se renseigner localement.',
+  },
+  {
+    tag: 'Ville',
+    title: 'Centre & marché',
+    text: 'Allées animées, couleurs d’épices et de tissus, conversations en dioula, français, kroumen… Le cœur social de San-Pédro.',
+    note: 'Scène composite démo, inspirée du quotidien.',
+  },
+  {
+    tag: 'Eau',
+    title: 'Lagune & pirogues',
+    text: 'Une autre respiration : eau plus calme, villages de pêche, silhouettes au petit matin. Contraste net avec le trafic portuaire.',
+    note: 'Accès et usages selon les zones — respectez les usages locaux.',
+  },
+  {
+    tag: 'Port',
+    title: 'Quais & horizon cargo',
+    text: 'Grues, entrepôts, odeur de sel et de cacao. Le port raconte pourquoi San-Pédro compte dans l’économie du sud-ouest.',
+    note: 'Zones industrielles : accès réglementé, observation depuis les points publics.',
+  },
+];
+
+const culture = [
+  {
+    title: 'Saveurs du littoral',
+    items: ['Poisson braisé & attiéké', 'Fruits de saison au bord de route', 'Café & cacao du hinterland'],
+  },
+  {
+    title: 'Rythmes & rencontres',
+    items: ['Musique dans les maquis', 'Matchs & discussions du soir', 'Hospitalité directe, sans mise en scène'],
+  },
+  {
+    title: 'Paysage vivant',
+    items: ['Forêt et plantations vers l’intérieur', 'Transition ville → plage', 'Ciels dramatiques en saison des pluies'],
+  },
+];
+---
+
+<BaseLayout
+  title="Découvrir San-Pédro — Culture, lieux & plages"
+  description="Culture, lieux et plages autour de San-Pédro : Monogaga, lagune, marché, port. Contenu démo crédible."
+  solidHeader
+>
+  <Header slot="header" />
+
+  <section class="bg-atlantique px-4 pb-16 pt-28 text-surface sm:px-6 sm:pb-20 sm:pt-32">
+    <div class="mx-auto max-w-3xl">
+      <DemoBadge class="border-white/20 bg-white/10 text-surface" />
+      <h1 class="mt-4 font-display text-4xl font-semibold tracking-tight text-surface sm:text-5xl">
+        Découvrir San-Pédro
+      </h1>
+      <p class="mt-4 text-base leading-relaxed text-surface/75 sm:text-lg">
+        Culture locale, lieux emblématiques et plages — un portrait sensible de la ville,
+        sans brochure générique ni « smart city » bleue.
+      </p>
+    </div>
+  </section>
+
+  <section class="bg-fond px-4 py-16 sm:px-6 sm:py-20">
+    <SectionHeading
+      eyebrow="Lieux"
+      title="Quatre façons d’entrer dans la ville"
+      lead="Des tableaux fictionnels mais crédibles, inspirés de San-Pédro réelle. Là où c’est inventé pour la démo, c’est indiqué."
+    />
+
+    <div class="mx-auto mt-12 grid max-w-6xl gap-5 md:grid-cols-2">
+      {
+        lieux.map((l) => (
+          <article class="reveal card-lift rounded-3xl border border-bord bg-surface p-6 sm:p-8">
+            <div class="flex items-center justify-between gap-3">
+              <span class="rounded-full bg-lagune/15 px-3 py-1 text-[0.68rem] font-semibold uppercase tracking-[0.14em] text-lagune">
+                {l.tag}
+              </span>
+              <DemoBadge />
+            </div>
+            <h3 class="mt-4 font-display text-2xl font-semibold text-atlantique">{l.title}</h3>
+            <p class="mt-3 text-sm leading-relaxed text-texte/75 sm:text-base">{l.text}</p>
+            <p class="mt-4 border-t border-bord pt-3 text-xs text-texte/55">{l.note}</p>
+          </article>
+        ))
+      }
+    </div>
+  </section>
+
+  <section class="border-y border-bord bg-surface px-4 py-16 sm:px-6 sm:py-20">
+    <SectionHeading
+      eyebrow="Culture"
+      title="Ce qui donne le ton"
+      lead="Pas de festivals inventés ni de labels. Juste des fils conducteurs du quotidien san-pédrois."
+    />
+
+    <div class="mx-auto mt-12 grid max-w-6xl gap-5 sm:grid-cols-3">
+      {
+        culture.map((c) => (
+          <article class="reveal rounded-3xl border border-bord bg-fond p-6">
+            <h3 class="font-display text-xl font-semibold text-atlantique">{c.title}</h3>
+            <ul class="mt-4 space-y-2.5 text-sm text-texte/80">
+              {c.items.map((item) => (
+                <li class="flex gap-2.5">
+                  <span class="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-cta" aria-hidden="true" />
+                  {item}
+                </li>
+              ))}
+            </ul>
+          </article>
+        ))
+      }
+    </div>
+  </section>
+
+  <section class="bg-fond px-4 py-16 sm:px-6">
+    <div class="reveal mx-auto max-w-3xl rounded-[2rem] border border-bord bg-surface px-6 py-10 text-center sm:px-10">
+      <h2 class="font-display text-2xl font-semibold text-atlantique sm:text-3xl">Envie du concret ?</h2>
+      <p class="mt-3 text-sm leading-relaxed text-texte/70 sm:text-base">
+        Horaires de mer, accès, climat et bons réflexes — côté pratiques.
+      </p>
+      <a
+        href="/pratiques"
+        class="mt-6 inline-flex rounded-full bg-cta px-6 py-3 text-sm font-semibold text-surface transition hover:bg-cta-hover"
+      >
+        Infos pratiques
+      </a>
+    </div>
+  </section>
+
+  <Footer slot="footer" />
+</BaseLayout>
