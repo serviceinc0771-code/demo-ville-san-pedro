@@ -1,0 +1,145 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import SectionHeading from '../components/SectionHeading.astro';
+import DemoBadge from '../components/DemoBadge.astro';
+
+const blocs = [
+  {
+    title: 'Y aller',
+    body: 'San-Pédro se rejoint depuis Abidjan par la route (plusieurs heures selon trafic et saison). Des liaisons aériennes intérieures existent selon les périodes — vérifiez les horaires à jour auprès des compagnies.',
+  },
+  {
+    title: 'Climat',
+    body: 'Climat tropical humide : saisons des pluies marquées, chaleur constante. Prévoir vêtements légers, protection soleil, et un plan B outdoor les jours d’orage.',
+  },
+  {
+    title: 'Sur place',
+    body: 'Taxi, VTC locaux et déplacements partagés selon les quartiers. Pour les plages, anticiper le retour avant la nuit si vous ne connaissez pas le secteur.',
+  },
+  {
+    title: 'Mer & sécurité',
+    body: 'Courants et houle variables sur l’Atlantique. Baignez-vous là où les locaux indiquent que c’est raisonnable. Zones portuaires = accès réglementé.',
+  },
+  {
+    title: 'Argent & réseau',
+    body: 'Mobile money très répandu. Espèces utiles pour petits commerces. Couverture mobile correcte en ville ; plus irrégulière hors agglomération.',
+  },
+  {
+    title: 'Respect local',
+    body: 'Demandez avant de photographier personnes ou lieux sensibles. Soutenez les commerces de proximité. Évitez les déchets sur plage et lagune.',
+  },
+];
+
+const voyageur = [
+  'Eau en bouteille ou filtrée',
+  'Crème solaire & chapeau',
+  'Adaptateur / powerbank',
+  'Petites coupures pour taxis & marchés',
+];
+
+const localTips = [
+  'Privilégier les circuits courts (marché, pêche du jour)',
+  'Partager les bons spots sans surcharger les lieux fragiles',
+  'Accueillir les visiteurs avec les infos utiles, pas les clichés',
+];
+---
+
+<BaseLayout
+  title="Pratiques — Infos utiles San-Pédro"
+  description="Infos pratiques voyageur et local pour San-Pédro : accès, climat, mer, argent, bons réflexes. Démo."
+  solidHeader
+>
+  <Header slot="header" />
+
+  <section class="bg-atlantique px-4 pb-16 pt-28 text-surface sm:px-6 sm:pb-20 sm:pt-32">
+    <div class="mx-auto max-w-3xl">
+      <DemoBadge class="border-white/20 bg-white/10 text-surface" />
+      <h1 class="mt-4 font-display text-4xl font-semibold tracking-tight text-surface sm:text-5xl">
+        Infos pratiques
+      </h1>
+      <p class="mt-4 text-base leading-relaxed text-surface/75 sm:text-lg">
+        Repères utiles pour voyageurs et habitant·es — indicatifs, non exhaustifs,
+        sans certifications ni avis fabriqués.
+      </p>
+    </div>
+  </section>
+
+  <section class="bg-fond px-4 py-16 sm:px-6 sm:py-20">
+    <SectionHeading
+      eyebrow="Repères"
+      title="Ce qu’il est bon de savoir"
+      lead="Contenu d’orientation pour la démo. Pour tout déplacement réel, croisez avec des sources officielles et locales à jour."
+    />
+
+    <div class="mx-auto mt-12 grid max-w-6xl gap-5 sm:grid-cols-2 lg:grid-cols-3">
+      {
+        blocs.map((b) => (
+          <article class="reveal rounded-3xl border border-bord bg-surface p-6">
+            <h3 class="font-display text-xl font-semibold text-atlantique">{b.title}</h3>
+            <p class="mt-3 text-sm leading-relaxed text-texte/75">{b.body}</p>
+          </article>
+        ))
+      }
+    </div>
+  </section>
+
+  <section class="border-y border-bord bg-surface px-4 py-16 sm:px-6 sm:py-20">
+    <div class="mx-auto grid max-w-6xl gap-8 md:grid-cols-2">
+      <div class="reveal rounded-3xl bg-lagune p-7 text-surface sm:p-8">
+        <p class="text-xs font-semibold uppercase tracking-[0.16em] text-surface/65">Voyageur</p>
+        <h2 class="mt-2 font-display text-2xl font-semibold text-surface">Checklist légère</h2>
+        <ul class="mt-5 space-y-3 text-sm text-surface/85">
+          {
+            voyageur.map((t) => (
+              <li class="flex gap-3">
+                <span class="mt-1 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-white/15 text-[0.65rem]" aria-hidden="true">
+                  ✓
+                </span>
+                {t}
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+
+      <div class="reveal rounded-3xl bg-culture p-7 text-surface sm:p-8">
+        <p class="text-xs font-semibold uppercase tracking-[0.16em] text-surface/65">Local</p>
+        <h2 class="mt-2 font-display text-2xl font-semibold text-surface">Bons réflexes</h2>
+        <ul class="mt-5 space-y-3 text-sm text-surface/85">
+          {
+            localTips.map((t) => (
+              <li class="flex gap-3">
+                <span class="mt-1 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-white/15 text-[0.65rem]" aria-hidden="true">
+                  ✓
+                </span>
+                {t}
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+    </div>
+
+    <p class="reveal mx-auto mt-10 max-w-3xl text-center text-xs leading-relaxed text-texte/55">
+      Aucun hôtel, restaurant ou guide n’est noté ici. Pas d’étoiles, pas de « top 10 » inventé,
+      pas de badge touristique fictif.
+    </p>
+  </section>
+
+  <section class="bg-fond px-4 py-16 sm:px-6">
+    <div class="reveal mx-auto max-w-3xl text-center">
+      <h2 class="font-display text-2xl font-semibold text-atlantique sm:text-3xl">Une question ?</h2>
+      <p class="mt-3 text-sm text-texte/70 sm:text-base">Le formulaire contact est une démo — rien n’est envoyé à un serveur réel.</p>
+      <a
+        href="/contact"
+        class="mt-6 inline-flex rounded-full bg-cta px-6 py-3 text-sm font-semibold text-surface transition hover:bg-cta-hover"
+      >
+        Page contact
+      </a>
+    </div>
+  </section>
+
+  <Footer slot="footer" />
+</BaseLayout>
