@@ -1,0 +1,39 @@
+---
+interface Props {
+  eyebrow?: string;
+  title: string;
+  lead?: string;
+  light?: boolean;
+}
+const { eyebrow, title, lead, light = false } = Astro.props;
+---
+
+<div class="reveal mx-auto max-w-2xl text-center">
+  {
+    eyebrow && (
+      <p
+        class:list={[
+          'text-xs font-semibold uppercase tracking-[0.18em]',
+          light ? 'text-surface/65' : 'text-lagune',
+        ]}
+      >
+        {eyebrow}
+      </p>
+    )
+  }
+  <h2
+    class:list={[
+      'mt-2 font-display text-3xl font-semibold tracking-tight sm:text-4xl',
+      light ? 'text-surface' : 'text-atlantique',
+    ]}
+  >
+    {title}
+  </h2>
+  {
+    lead && (
+      <p class:list={['mt-3 text-base leading-relaxed sm:text-lg', light ? 'text-surface/75' : 'text-texte/75']}>
+        {lead}
+      </p>
+    )
+  }
+</div>
